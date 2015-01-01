@@ -1,0 +1,77 @@
+---
+layout:           default
+---
+<div class="index-content blog">
+
+{{ content }}
+
+    <div class="aside">
+        <div class="overlay"></div>
+        <div class="intrude-less">
+            <header id="header" class="inner">
+
+                <div class="profilepic">
+                    <img src="/images/yuexy.jpg">
+                </div>
+
+                <hgroup>
+                    <h1 class="header-author"><a href="/">Yue Xy</a></h1>
+                </hgroup>
+
+        
+                <p class="header-subtitle">一只年轻的程序猿。</p>
+
+                <nav class="header-nav">
+                    <div class="social">
+                            
+                        <a class="github" target="_blank" href="https://github.com/yuexy" title="github">github</a>
+
+                    </div>
+                </nav>
+        
+            </header>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        function animateBar($item,noAni){
+            var spanLeft = $item.find('span').offset().left;
+            var conLeft = $item.parent().offset().left;
+            var left = spanLeft - conLeft;
+            var width = $item.find('span').width() + 8;
+
+            if(noAni){
+                $('#cateBar').css({left:left,width:width})
+            }else{
+                $('#cateBar').stop().animate({left:left,width:width},300)
+            }
+        }
+
+        var waitForFinalEvent = (function () {
+            var timers = {};
+            return function (callback, ms, uniqueId) {
+                if (!uniqueId) {
+                    uniqueId = "Don't call this twice without a uniqueId";
+                }
+                if (timers[uniqueId]) {
+                    clearTimeout (timers[uniqueId]);
+                }
+                timers[uniqueId] = setTimeout(callback, ms);
+            };
+        })();
+
+        $('.artical-cate li').mouseenter(function(){
+            animateBar($(this));
+        }).mouseleave(function(){
+            animateBar($('.artical-cate .on'));
+        });
+
+        $(window).resize(function(e){
+            waitForFinalEvent(function(){
+                animateBar($('.artical-cate .on'));
+            })
+        })
+        animateBar($('.artical-cate .on'),true);
+    });
+</script>
