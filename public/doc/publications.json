@@ -1,0 +1,18 @@
+[
+    {
+        "image": "doc/publications/1/image.png",
+        "intro": "doc/publications/1/intro.md"
+    },
+    {
+        "image": "doc/publications/2/image.png",
+        "intro": "doc/publications/2/intro.md"
+    },
+    {
+        "image": "doc/publications/3/image.png",
+        "intro": "doc/publications/3/intro.md"
+    },
+    {
+        "image": "doc/publications/4/image.png",
+        "intro": "doc/publications/4/intro.md"
+    }
+]

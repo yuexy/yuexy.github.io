@@ -1,9 +1,0 @@
-auto: true
-
-markdown: rdiscount
-pygments: true
-paginate: 8
-permalink: /:title
-
-title: YueXy's Blog
-aboutme: A young coder.
