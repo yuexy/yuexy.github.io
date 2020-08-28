@@ -43,6 +43,7 @@
             <span class="markdown-body" v-html="user_intro" />
           </div>
           <div class="wrapper">
+            <hr />
             <div class="md-layout">
               <div class="md-layout-item md-size-20 md-small-size-100">
                 <h3>Publications</h3>
@@ -63,6 +64,24 @@
               </div>
             </div>
           </div>
+          <!-- <div class="wrapper">
+            <hr />
+            <div class="md-layout">
+              <div class="md-layout-item md-size-20 md-small-size-100">
+                <h3>Contact</h3>
+              </div>
+              <div class="md-layout-item md-size-65 md-small-size-100 wrapper">
+                <div class="md-layout">
+                  <div class="md-layout-item md-size-10 md-small-size-100">
+                    <md-icon class="big-icon">email</md-icon>
+                  </div>
+                  <div class="md-layout-item md-size-35 md-small-size-100">
+                    <h4>yuexiaoyu002@gmail.com</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -113,7 +132,6 @@ export default {
       axios.get("doc/academic.json").then(data => {
         _this.user_name = data.data.name;
         _this.user_title = data.data.title;
-        // _this.user_intro = data.data.intro;
         _this.user_header = data.data.header;
         _this.user_link = data.data.link;
         const intro_md = axios.get(data.data.intro).then(intro => {
@@ -121,10 +139,10 @@ export default {
         });
       });
       axios.get("doc/publications.json").then(data => {
-        data.data.forEach(element => {
+        data.data.forEach((element, element_index) => {
+          _this.publications.push(element);
           const intro_md = axios.get(element.intro).then(intro => {
             element.intro = markDownIt.render(intro.data);
-            _this.publications.push(element);
           });
         });
       });

@@ -156,8 +156,15 @@
             }
     }
     .wrapper{
-        margin: 10px;
-        margin-bottom: 90px;
+        margin: 20px;
+        hr{
+            border: none;
+            height: 1px;
+            background-color: #f1f1f1;
+        }
+    }
+    .big-icon{
+        font-size: 50px !important;
     }
     .profile{
         text-align: center;
