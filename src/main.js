@@ -17,10 +17,12 @@ import App from "./App.vue";
 import router from "./router";
 
 import MaterialKit from "./plugins/material-kit";
+import ElementUI from "element-ui";
 
 Vue.config.productionTip = false;
 
 Vue.use(MaterialKit);
+Vue.use(ElementUI);
 
 const NavbarStore = {
   showNavbar: false

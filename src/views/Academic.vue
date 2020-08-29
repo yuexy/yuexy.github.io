@@ -4,6 +4,7 @@
       class="section page-header header-filter"
       :style="headerStyle"
     ></parallax>
+    <el-backtop :right="40" :bottom="40" />
     <div class="main main-raised">
       <div class="section profile-content">
         <div class="container">
@@ -64,24 +65,71 @@
               </div>
             </div>
           </div>
-          <!-- <div class="wrapper">
+          <div class="wrapper">
             <hr />
             <div class="md-layout">
               <div class="md-layout-item md-size-20 md-small-size-100">
-                <h3>Contact</h3>
+                <h3>Experience</h3>
               </div>
-              <div class="md-layout-item md-size-65 md-small-size-100 wrapper">
-                <div class="md-layout">
-                  <div class="md-layout-item md-size-10 md-small-size-100">
-                    <md-icon class="big-icon">email</md-icon>
-                  </div>
-                  <div class="md-layout-item md-size-35 md-small-size-100">
-                    <h4>yuexiaoyu002@gmail.com</h4>
-                  </div>
+              <div class="md-layout-item md-size-80 md-small-size-100">
+                <div class="wrapper">
+                  <el-timeline :reverse="true">
+                    <el-timeline-item v-for="(p, pid) in experience" :key="pid">
+                      <el-card>
+                        <span class="markdown-body" v-html="p.intro" />
+                      </el-card>
+                    </el-timeline-item>
+                  </el-timeline>
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
+          <div class="wrapper" style="margin-top: 0px; margin-bottom: 35px;">
+            <hr />
+            <div class="md-layout">
+              <div class="md-layout-item md-size-20 md-small-size-100">
+                <h3>Skills</h3>
+              </div>
+              <div class="md-layout-item md-size-80 md-small-size-100">
+                <div class="wrapper">
+                  <nav-tabs-card no-label tabs-plain>
+                    <template slot="content">
+                      <md-tabs class="md-info" md-alignment="left">
+                        <md-tab
+                          v-for="(s, sid) in skills"
+                          :key="sid"
+                          :id="s.name"
+                          :md-label="s.name"
+                        >
+                          <div class="md-layout">
+                            <div
+                              v-for="(i, iid) in s.items"
+                              :key="iid"
+                              class="md-layout-item md-size-33 md-small-size-100"
+                              style="margin-top: 12px;"
+                            >
+                              <h5>{{ i.name }}</h5>
+                              <el-rate
+                                :value="i.rate"
+                                disabled
+                                :colors="[
+                                  '#ef5350',
+                                  '#ef5350',
+                                  '#ef5350',
+                                  '#ef5350',
+                                  '#ef5350'
+                                ]"
+                              />
+                            </div>
+                          </div>
+                        </md-tab>
+                      </md-tabs>
+                    </template>
+                  </nav-tabs-card>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -91,9 +139,12 @@
 <script>
 import axios from "redaxios";
 import MarkdownIt from "markdown-it";
+import { NavTabsCard } from "@/components";
 const markDownIt = new MarkdownIt({ html: true });
 export default {
-  components: {},
+  components: {
+    NavTabsCard
+  },
   bodyClass: "academic-page",
   data() {
     return {
@@ -102,7 +153,9 @@ export default {
       user_intro: "",
       user_header: "doc/header.jpg",
       user_link: {},
-      publications: []
+      publications: [],
+      experience: [],
+      skills: []
     };
   },
   props: {
@@ -134,17 +187,28 @@ export default {
         _this.user_title = data.data.title;
         _this.user_header = data.data.header;
         _this.user_link = data.data.link;
-        const intro_md = axios.get(data.data.intro).then(intro => {
+        axios.get(data.data.intro).then(intro => {
           _this.user_intro = markDownIt.render(intro.data);
         });
       });
       axios.get("doc/publications.json").then(data => {
-        data.data.forEach((element, element_index) => {
+        data.data.forEach(element => {
           _this.publications.push(element);
-          const intro_md = axios.get(element.intro).then(intro => {
+          axios.get(element.intro).then(intro => {
             element.intro = markDownIt.render(intro.data);
           });
         });
+      });
+      axios.get("doc/experience.json").then(data => {
+        data.data.forEach(element => {
+          _this.experience.push(element);
+          axios.get(element.intro).then(intro => {
+            element.intro = markDownIt.render(intro.data);
+          });
+        });
+      });
+      axios.get("doc/skills.json").then(data => {
+        _this.skills = data.data;
       });
     }
   }

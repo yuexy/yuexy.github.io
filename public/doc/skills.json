@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Deep Learning",
+        "items": [
+            {
+                "name": "PyTorch",
+                "rate": 5
+            },
+            {
+                "name": "Caffe",
+                "rate": 5
+            },
+            {
+                "name": "NumPy",
+                "rate": 3.5
+            },
+            {
+                "name": "CUDA",
+                "rate": 3
+            }
+        ]
+    },
+    {
+        "name": "Programming",
+        "items": [
+            {
+                "name": "C/C++",
+                "rate": 5
+            },
+            {
+                "name": "Python",
+                "rate": 5
+            },
+            {
+                "name": "JAVA",
+                "rate": 3
+            },
+            {
+                "name": "JavaScript",
+                "rate": 2.5
+            }
+        ]
+    },
+    {
+        "name": "Overwatch",
+        "items": [
+            {
+                "name": "Widowmaker",
+                "rate": 5
+            },
+            {
+                "name": "Hanzo",
+                "rate": 1
+            }
+        ]
+    }
+]
