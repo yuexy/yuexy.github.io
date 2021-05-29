@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Wayne Zhang",
+        "header": "doc/collaborators/default.png",
+        "link": "http://www.statfe.com/"
+    },
+    {
+        "name": "Zhanghui Kuang",
+        "header": "doc/collaborators/zhanghuikuang.jpg",
+        "link": "http://jeffreykuang.github.io/"
+    },
+    {
+        "name": "Shuyang Sun",
+        "header": "doc/collaborators/shuyangsun.jpg",
+        "link": "https://kevin-ssy.github.io/"
+    },
+    {
+        "name": "Pan He",
+        "header": "doc/collaborators/panhe.jpg",
+        "link": "https://bestsonny.github.io/"
+    },
+    {
+        "name": "Hongbin Sun",
+        "header": "doc/collaborators/hongbinsun.jpeg",
+        "link": "http://hbsun.xyz/#/"
+    },
+    {
+        "name": "Zhaoyang Zhang",
+        "header": "doc/collaborators/zhaoyangzhang.png",
+        "link": "http://luoping.me/author/zhaoyang-zhang/"
+    }
+]

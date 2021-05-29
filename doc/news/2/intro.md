@@ -1,0 +1,1 @@
+We released [MMOCR](https://github.com/open-mmlab/mmocr), a toolbox for Text Detection, Recognition and Understanding.
