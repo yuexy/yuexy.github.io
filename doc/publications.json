@@ -1,0 +1,42 @@
+[
+    {
+        "image": "doc/publications/12/image.png",
+        "intro": "doc/publications/12/intro.md"
+    },
+    {
+        "image": "doc/publications/11/image.png",
+        "intro": "doc/publications/11/intro.md"
+    },
+    {
+        "image": "doc/publications/10/image.png",
+        "intro": "doc/publications/10/intro.md"
+    },
+    {
+        "image": "doc/publications/8/image.png",
+        "intro": "doc/publications/8/intro.md"
+    },
+    {
+        "image": "doc/publications/7/image.png",
+        "intro": "doc/publications/7/intro.md"
+    },
+    {
+        "image": "doc/publications/9/image.png",
+        "intro": "doc/publications/9/intro.md"
+    },
+    {
+        "image": "doc/publications/1/image.png",
+        "intro": "doc/publications/1/intro.md"
+    },
+    {
+        "image": "doc/publications/2/image.png",
+        "intro": "doc/publications/2/intro.md"
+    },
+    {
+        "image": "doc/publications/3/image.png",
+        "intro": "doc/publications/3/intro.md"
+    },
+    {
+        "image": "doc/publications/6/image.png",
+        "intro": "doc/publications/6/intro.md"
+    }
+]
